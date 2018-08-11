@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FineGameDesign.LudumDare42
+namespace FineGameDesign.Utils
 {
     public sealed class HideButton : MonoBehaviour
     {
