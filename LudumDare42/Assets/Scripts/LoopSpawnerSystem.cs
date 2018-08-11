@@ -34,7 +34,7 @@ namespace FineGameDesign.Utils
     [Serializable]
     public sealed class LoopSpawnerSystem : ASingleton<LoopSpawnerSystem>
     {
-        public event Action<GameObject> onSpawned;
+        public event Action<Transform[]> onSpawned;
 
         public void Move(Vector3 step)
         {
