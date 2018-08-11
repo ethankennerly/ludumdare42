@@ -1,62 +1,31 @@
-# Engineering
+# Engineering Features
 
-## Features
-
-1. [x] Tap button to start.
-1. [x] See vehicle.
-1. [x] Read instruction.
-1. [x] See a block.
-1. [x] Tilt camera to see maximum blocks.
-1. [ ] Move blocks at configurable speed.
-1. [ ] Shuffle blocks to place in a row at maximum density.
-1. [ ] Collide with block: See game over.
-1. [ ] Game over. Restart.
-1. [ ] Game over. Fade out blocks. Reset.
-1. [ ] See horizon.
-1. [ ] Keyboard to steer.
-1. [ ] Tap edge of screen to steer.
-1. [ ] Read score by distance. Read top score.
-1. [ ] Pool cubes.
-1. [ ] Wrap horizontal space of blocks.
-1. [ ] Wrap depth of space of blocks.
-1. [ ] Shuffle blocks to place in a row at maximum density.
-1. [ ] Sync music beats per minute with speed.
-1. [ ] Before next lap enters camera, place next layer of blocks.
-1. [ ] As start next lap, fade in next layer of music.
-1. [ ] Collide. Hear sound.
-1. [ ] Steer. Hear sound.
-1. [ ] Sync rhythm of music and metrics of grid cell size and speed.
-1. [ ] Tilt camera when steering.
-1. [ ] Pause.
-1. [ ] Score. Most significant digit represents lap.
-1. [ ] Score. Sum of blocks passed.  "MB"
-1. [ ] Button to switch to tilt to steer.
-
-# Architecture
+- [ ] TODO
+- [x] Done
 
 ## Motion
 
 ### Editor flow
 
-1. [ ] See [Mover System](LudumDare42/Assets/Scripts/MoverSystem.cs)
+1. [x] Pause.
+    1. [x] Tap button to start.
+    1. [x] Read instruction.
+1. [x] See [Mover System](LudumDare42/Assets/Scripts/MoverSystem.cs)
+    1. [x] See a block.
+    1. [x] Move blocks at configurable speed.
+    1. [x] Tilt camera to see maximum blocks.
+1. [x] Mover Steering Listener
+    1. [x] Mover set X listens to steering X.
+    1. [ ] Steer. Hear sound.
 
-1. [ ] Mover Pause Button.
-    1. [ ] Button.
-    1. [ ] Pause Else Resume.
-        1. [ ] On clicked, pauses or resumes Mover System.
-
-1. [ ] Horizontal Steering System
-    1. [ ] X Axis Dead Zone.
-        1. [ ] Listens to Key System On Key Down X Y.
-        1. [ ] Listens to Click System On Axis X Y.
-        1. [ ] If X in Dead Zone, stop here.
-        1. [ ] If reset X time remaining, stop here.
-        1. [ ] Publish On Steer X.
-    1. [ ] Reset X Time
-        1. [ ] Afterward reset X to zero.
+1. [x] See [Horizontal Steering System](LudumDare42/Assets/UnityToykit/HorizontalSteeringSystem.cs)
+    1. [ ] Tilt camera when steering.
+    1. [ ] See horizon.
 
 1. [x] Click System View (Unity Toykit)
-1. [ ] Key System View (Unity Toykit)
+    1. [x] Tap edge of screen to steer.
+1. [x] Key System View (Unity Toykit)
+    1. [x] Keyboard to steer.
 
 ## Spawn
 
@@ -87,14 +56,19 @@
             1. [ ] Lap Index
 
 1. [ ] Lap Spawn Move Listener
-    1. [ ] Lap Spawn listens to Move System On Position Changed.
+    1. [ ] Lap Spawn listens to Move System On Moved.
     1. [ ] Move System listens to On Spawn.
+
+1. [ ] Lap Spawn Music Listener
+    1. [ ] Sync music beats per minute with speed.
+    1. [ ] Sync rhythm of music and metrics of grid cell size and speed.
 
 ## Collider
 
 ### Editor flow
 
 1. [ ] Collider
+    1. [x] See vehicle.
     1. [ ] Rigid Body
     1. [ ] On Collision
 
@@ -102,3 +76,13 @@
     1. [ ] Move System Pause listens to Collider On Collision
     1. [ ] Game Over root Set Active listens to On Collision
     1. [ ] Sound plays.
+
+1. [ ] Game over. Restart.
+1. [ ] Game over. Fade out blocks. Reset.
+
+## Score
+
+1. [ ] Read score by distance.
+1. [ ] Read top score.
+1. [ ] Score. Most significant digit represents lap.
+1. [ ] Score. Sum of blocks passed.  "MB"
