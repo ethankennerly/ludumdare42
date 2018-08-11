@@ -27,6 +27,15 @@ namespace FineGameDesign.Utils
 
         private Vector3 m_Position;
 
+        public void AddTransforms(Transform[] transforms)
+        {
+            int numNewTransforms = transforms.Length;
+            int numTransforms = m_Transforms.Length;
+            int totalTransforms = numTransforms + numNewTransforms;
+            Array.Resize(ref m_Transforms, totalTransforms);
+            Array.Copy(transforms, 0, m_Transforms, numTransforms, numNewTransforms);
+        }
+
         public void Update(float deltaTime)
         {
             Vector3 step = deltaTime * m_Speed;

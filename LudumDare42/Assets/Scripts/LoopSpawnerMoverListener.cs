@@ -6,7 +6,6 @@ namespace FineGameDesign.Utils
     /// <summary>
     /// 1. [ ] Loop Spawner Mover Bridge
     ///     1. [x] Loop Spawner Move Position listens to Mover System On Moved.
-    ///     1. [ ] Mover System Add Object listens to Loop Spawner On Spawned.
     /// </summary>
     public sealed class LoopSpawnerMoverBridge : MonoBehaviour
     {
