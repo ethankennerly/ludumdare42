@@ -1,0 +1,3 @@
+[submodule "LudumDare42/Assets/UnityToykit"]
+	path = LudumDare42/Assets/UnityToykit
+	url = git@github.com:ethankennerly/UnityToykit.git

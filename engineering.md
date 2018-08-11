@@ -38,21 +38,13 @@
 
 ### Editor flow
 
-1. [ ] Move System
-    1. [ ] Is Paused.
-    1. [ ] Speed (vector).
-    1. [ ] Moving Objects.
-    1. [ ] On Position Changed.
-        1. [ ] Camera and vehicle stay still.
-        1. [ ] Objects in grid slide in direction of camera along z axis.
-        - Otherwise, floating point numbers becomes less precise.
-        <http://davenewson.com/posts/2013/unity-coordinates-and-scales.html>
-    1. [ ] Set X
+1. [ ] See [Mover System](LudumDare42/Assets/Scripts/MoverSystem.cs)
 
-1. [ ] Speed Pause Button.
+1. [ ] Mover Pause Button.
     1. [ ] Pause Else Resume.
+        1. [ ] On clicked, pauses or resumes Mover System.
 
-1. [ ] Horizontal Steer System
+1. [ ] Horizontal Steering System
     1. [ ] X Axis Dead Zone.
         1. [ ] Listens to Key System On Key Down X Y.
         1. [ ] Listens to Click System On Axis X Y.
@@ -69,7 +61,7 @@
 
 ### Editor flow
 
-1. [ ] Lap Spawn System
+1. [ ] Lap Spawner System
     1. [ ] Lap Spawns
         1. [ ] Prefab
         1. [ ] Density
