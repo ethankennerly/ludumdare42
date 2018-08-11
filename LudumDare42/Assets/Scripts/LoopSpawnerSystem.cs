@@ -27,10 +27,6 @@ namespace FineGameDesign.Utils
     ///         1. [ ] Spawned
     ///         1. [ ] Loop Index
     ///
-    /// 1. [ ] Loop Spawner Mover Listener
-    ///     1. [ ] Loop Spawner Move Position listens to Mover System On Moved.
-    ///     1. [ ] Mover System Add Object listens to Loop Spawner On Spawned.
-    /// 
     /// 1. [ ] Loop Spawner Music Listener
     ///     1. [ ] Sync music beats per minute with speed.
     ///     1. [ ] Sync rhythm of music and metrics of grid cell size and speed.
@@ -39,5 +35,9 @@ namespace FineGameDesign.Utils
     public sealed class LoopSpawnerSystem : ASingleton<LoopSpawnerSystem>
     {
         public event Action<GameObject> onSpawned;
+
+        public void Move(Vector3 step)
+        {
+        }
     }
 }
