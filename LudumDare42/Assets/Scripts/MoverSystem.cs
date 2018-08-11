@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace FineGameDesign.Utils
 {
@@ -17,5 +18,19 @@ namespace FineGameDesign.Utils
     [Serializable]
     public sealed class MoverSystem : ASingleton<MoverSystem>
     {
+        [SerializeField]
+        private Vector3 m_Speed;
+
+        [SerializeField]
+        private Transform[] m_Transforms;
+
+        public void Update(float deltaTime)
+        {
+            Vector3 step = deltaTime * m_Speed;
+            foreach (Transform transform in m_Transforms)
+            {
+                transform.position += step;
+            }
+        }
     }
 }

@@ -41,6 +41,7 @@
 1. [ ] See [Mover System](LudumDare42/Assets/Scripts/MoverSystem.cs)
 
 1. [ ] Mover Pause Button.
+    1. [ ] Button.
     1. [ ] Pause Else Resume.
         1. [ ] On clicked, pauses or resumes Mover System.
 
