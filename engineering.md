@@ -31,11 +31,11 @@
 ## Level Reader
 
 1. [x] See [Texture To Byte Array 2D](LudumDare42/Assets/UnityToykit/TextureToByteArray2D.cs)
-1. [ ] See [Loop Spawner System](LudumDare/Assets/Scripts/LoopSpawnerSystem.cs)
+1. [x] See [Loop Spawner System](LudumDare/Assets/Scripts/LoopSpawnerSystem.cs)
 
 ## Spawn
 
-1. [ ] See [Loop Spawner System](LudumDare/Assets/Scripts/LoopSpawnerSystem.cs)
+1. [x] See [Loop Spawner System](LudumDare/Assets/Scripts/LoopSpawnerSystem.cs)
 
 ## Collider
 

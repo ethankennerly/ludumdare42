@@ -120,6 +120,11 @@ namespace FineGameDesign.Utils
             }
         }
 
+        public void ResetPosition()
+        {
+            m_Position = m_Origin;
+        }
+
         public void Spawn(ByteArray2D layout)
         {
             m_MaxLoops = (byte)m_LoopPools.Length;

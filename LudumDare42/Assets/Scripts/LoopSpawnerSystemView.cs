@@ -9,6 +9,7 @@ namespace FineGameDesign.Utils
 
         private void OnEnable()
         {
+            controller.ResetPosition();
             controller.Spawn(m_TextureController.GetRedChannel());
         }
     }
