@@ -388,21 +388,11 @@ Prefab:
     - target: {fileID: 114437673735795288, guid: f0b091ac936294b638719bf7d75d3dd1,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114437673735795288, guid: f0b091ac936294b638719bf7d75d3dd1,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114437673735795288, guid: f0b091ac936294b638719bf7d75d3dd1,
-        type: 2}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114437673735795288, guid: f0b091ac936294b638719bf7d75d3dd1,
-        type: 2}
-      propertyPath: m_textInfo.characterCount
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -795,22 +785,22 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114950299233958322, guid: dccc9652712294656a23260e1e16fed6,
+    - target: {fileID: 114540663544761410, guid: dccc9652712294656a23260e1e16fed6,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114950299233958322, guid: dccc9652712294656a23260e1e16fed6,
+    - target: {fileID: 114540663544761410, guid: dccc9652712294656a23260e1e16fed6,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114540663544761410, guid: dccc9652712294656a23260e1e16fed6,
+    - target: {fileID: 114950299233958322, guid: dccc9652712294656a23260e1e16fed6,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114540663544761410, guid: dccc9652712294656a23260e1e16fed6,
+    - target: {fileID: 114950299233958322, guid: dccc9652712294656a23260e1e16fed6,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -820,11 +810,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1492146006}
-    - target: {fileID: 224360270767841186, guid: dccc9652712294656a23260e1e16fed6,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -318
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dccc9652712294656a23260e1e16fed6, type: 2}
   m_IsPrefabParent: 0

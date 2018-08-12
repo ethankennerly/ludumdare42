@@ -19,9 +19,9 @@ namespace FineGameDesign.Utils
 
         private void OnEnable()
         {
-            controller.Initialize();
-
             AddListener();
+
+            controller.Initialize();
         }
 
         private void OnDisable()
