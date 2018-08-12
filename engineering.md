@@ -29,14 +29,10 @@
 
 ## Level Reader
 
-1. [ ] Map image x to world x.
-1. [ ] Map image y to world -z.
-1. [ ] Map red channel to integer.
-1. [ ] Align bottom center of image to 0, 0, 0.
+1. [x] See [Texture To Byte Array 2D](LudumDare42/Assets/UnityToykit/TextureToByteArray2D.cs)
+1. [ ] See [Loop Spawner System](LudumDare/Assets/Scripts/LoopSpawnerSystem.cs)
 
 ## Spawn
-
-### Editor flow
 
 1. [ ] See [Loop Spawner System](LudumDare/Assets/Scripts/LoopSpawnerSystem.cs)
 

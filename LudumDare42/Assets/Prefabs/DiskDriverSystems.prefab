@@ -72666,7 +72666,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289420447330774}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aed55b0ed418a4498abbb118083c7966, type: 3}
   m_Name: 
@@ -72727,10 +72727,10 @@ MonoBehaviour:
     m_LoopPools:
     - threshold: 0
       prefab: {fileID: 1941049763045796, guid: 68a19735fbd4d4fbab3e822fc79aa2a9, type: 2}
-      maxClones: 4098
+      maxClones: 1024
       spawnParent: {fileID: 0}
     m_SpawnDepthMin: -10
-    m_SpawnDepthMax: 250
+    m_SpawnDepthMax: 50
   m_TextureController: {fileID: 114125896756055120}
 --- !u!114 &114670033618883692
 MonoBehaviour:

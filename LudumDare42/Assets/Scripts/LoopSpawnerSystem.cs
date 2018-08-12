@@ -84,6 +84,7 @@ namespace FineGameDesign.Utils
         {
             public byte threshold;
             public GameObject prefab;
+            [Header("Too low: despawn. Too high: waste memory.")]
             public int maxClones = 128;
             public Transform spawnParent;
 
@@ -160,15 +161,19 @@ namespace FineGameDesign.Utils
             return inverted;
         }
 
+        // 1. [x] Map image x to world x.
+        // 1. [x] Map image y to world -z.
+        // 1. [x] Align bottom center of image to 0, 0, 0.
         private void UpdateSpawning()
         {
             int rowSpawnRange = m_SpawnDepthMax - m_SpawnDepthMin;
-            // int rowLimit = (m_NumRows - rowSpawnRange) / 2;
-            int rowLimit = m_NumRows;
-            int rowPosition = (int)m_Position.z;
+            int rowLimit = rowSpawnRange;
+            if (rowLimit > m_NumRows)
+                rowLimit = m_NumRows;
+            int rowPosition = -(int)m_Position.z;
             for (int rowFromMin = 0; rowFromMin < rowLimit; ++rowFromMin)
             {
-                int row = (rowFromMin + m_SpawnDepthMin) % m_NumRows;
+                int row = (rowPosition + rowFromMin + m_SpawnDepthMin) % m_NumRows;
                 while (row < 0)
                     row += m_NumRows;
                 for (int column = 0; column < m_NumColumns; ++column)
@@ -198,12 +203,11 @@ namespace FineGameDesign.Utils
         {
             float x = m_Position.x + column - m_NumColumns / 2;
             float y = 0f;
-            float z = row - m_Position.z;
+            float z = row + m_Position.z;
             Vector3 position = new Vector3(x, y, z);
             return position;
         }
 
-        // TODO:
         public void Move(Vector3 step)
         {
             m_Position += step;

@@ -259,6 +259,26 @@ Prefab:
       propertyPath: m_ResumeButtons.Array.data[1]
       value: 
       objectReference: {fileID: 1889821187}
+    - target: {fileID: 224298542550428762, guid: dd944232d6ae74e2aadf3e75e91bc7f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -85.90039
+      objectReference: {fileID: 0}
+    - target: {fileID: 224298542550428762, guid: dd944232d6ae74e2aadf3e75e91bc7f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 224870587569721946, guid: dd944232d6ae74e2aadf3e75e91bc7f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -85.90039
+      objectReference: {fileID: 0}
+    - target: {fileID: 224870587569721946, guid: dd944232d6ae74e2aadf3e75e91bc7f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.799805
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd944232d6ae74e2aadf3e75e91bc7f7, type: 2}
   m_IsPrefabParent: 0
@@ -523,6 +543,11 @@ Prefab:
       propertyPath: m_Controller.m_Transforms.Array.data[0]
       value: 
       objectReference: {fileID: 603581207}
+    - target: {fileID: 114394143159755924, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a16f01278495c41a2b43aa6d496454e4, type: 2}
   m_IsPrefabParent: 0
