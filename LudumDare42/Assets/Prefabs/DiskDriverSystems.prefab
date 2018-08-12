@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Controller:
     m_XAxisMin: 0.5
-    m_XMultiplier: -30
+    m_XMultiplier: -18.266666
     m_SteeringDuration: 0.125
   m_AudioSource: {fileID: 82897769155516928}
   m_LeftClip: {fileID: 8300000, guid: 99d782806be1e4894a55bec344d19ab5, type: 3}

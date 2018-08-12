@@ -99,6 +99,10 @@ namespace FineGameDesign.Utils
             [NonSerialized]
             private int spawnedIndex;
 
+            /// <summary>
+            /// This could pool objects to survive scene change by setting objects to not destroy on load.
+            /// The objects would need repositioning.
+            /// </summary>
             public void Initialize(Vector3 offScreen)
             {
                 spawnedObjects = new GameObject[maxClones];
