@@ -5,34 +5,30 @@ using UnityEngine;
 namespace FineGameDesign.Utils
 {
     /// <summary>
-    /// 1. [ ] Loop Prefab
-    ///     1. [ ] Prefab
-    ///     1. [ ] Max Clones
-    /// 1. [ ] Loop Index
-    ///     1. [ ] Objects above loop index are not spawned.
-    /// 1. [ ] Wrap Width
-    ///     1. [ ] Objects wrap horizontally.
-    /// 1. [ ] Loop Depth
-    ///     1. [ ] Loops objects and increments loop index.
-    /// 1. [ ] Spawn Depth Min
-    /// 1. [ ] Spawn Depth Max
-    ///     1. [ ] Objects furthest in of spawn type are selected to show next in grid.
-    /// 1. [ ] Move Position
-    ///     1. [ ] On Spawn.
-    ///     1. [ ] On Loop.
-    /// 1. [ ] Grid from depth and width.
-    ///     1. [ ] Map image x to world x.
-    ///     1. [ ] Map image y to world -z.
-    ///     1. [ ] Align bottom center of image to 0, 0, 0.
-    ///     1. [ ] Map gray scale channel red [0..255] to number loop index.
+    /// 1. [x] Loop Prefab
+    ///     1. [x] Prefab
+    ///     1. [x] Max Clones
+    /// 1. [x] Loop Index
+    ///     1. [x] Objects above loop index are not spawned.
+    /// 1. [x] Wrap Width
+    ///     1. [x] Objects wrap horizontally.
+    /// 1. [x] Loop Depth
+    ///     1. [x] Loops objects and increments loop index.
+    /// 1. [x] Spawn Depth Min
+    /// 1. [x] Spawn Depth Max
+    ///     1. [x] Objects furthest in of spawn type are selected to show next in grid.
+    /// 1. [x] Move Position
+    ///     1. [x] On Spawn.
+    ///     1. [x] On Loop.
+    /// 1. [x] Grid from depth and width.
+    ///     1. [x] Map image x to world x.
+    ///     1. [x] Map image y to world -z.
+    ///     1. [x] Align bottom center of image to 0, 0, 0.
+    ///     1. [x] Map gray scale channel red [0..255] to number loop index.
     ///     - Takes up a lot of space, yet fast to query.  Example: <a href="https://github.com/jakesgordon/javascript-racer"/>
-    ///     1. [ ] Cell
-    ///         1. [ ] Spawned
-    ///         1. [ ] Loop Index
-    ///
-    /// 1. [ ] Loop Spawner Music Listener
-    ///     1. [ ] Sync music beats per minute with speed.
-    ///     1. [ ] Sync rhythm of music and metrics of grid cell size and speed.
+    ///     1. [x] Cell
+    ///         1. [x] Spawned
+    ///         1. [x] Loop Index
     /// </summary>
     [Serializable]
     public sealed class LoopSpawnerSystem : ASingleton<LoopSpawnerSystem>

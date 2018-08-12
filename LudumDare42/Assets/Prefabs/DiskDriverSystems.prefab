@@ -403,14 +403,26 @@ MonoBehaviour:
       prefab: {fileID: 1289880190751462, guid: 367d0f75e192245e5ae3f817cfdea09c, type: 2}
       maxClones: 512
       spawnParent: {fileID: 0}
-    - threshold: 204
+    - threshold: 153
+      prefab: {fileID: 1289880190751462, guid: 54dbafa18126e4bc8b92b16278715192, type: 2}
+      maxClones: 512
+      spawnParent: {fileID: 0}
+    - threshold: 255
       prefab: {fileID: 1835903139742040, guid: fc25814eb89c04fb3983fb2b03674152, type: 2}
+      maxClones: 512
+      spawnParent: {fileID: 0}
+    - threshold: 204
+      prefab: {fileID: 1941049763045796, guid: 68a19735fbd4d4fbab3e822fc79aa2a9, type: 2}
       maxClones: 512
       spawnParent: {fileID: 0}
     m_SpawnDepthMin: -10
     m_SpawnDepthMax: 50
     m_SpawnColumnDistanceMax: 25
   m_TextureController: {fileID: 114125896756055120}
+  m_ActivatedOnLoopIndex:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114670033618883692
 MonoBehaviour:
   m_ObjectHideFlags: 1

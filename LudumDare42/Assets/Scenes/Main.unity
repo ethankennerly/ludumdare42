@@ -295,11 +295,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
-        type: 2}
-      propertyPath: m_ActivatedOnLoopIndex.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4196342142542830, guid: a16f01278495c41a2b43aa6d496454e4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -334,21 +329,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
         type: 2}
-      propertyPath: m_Controller.m_LoopPools.Array.data[0].spawnParent
-      value: 
-      objectReference: {fileID: 603581207}
-    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
-        type: 2}
-      propertyPath: m_Controller.m_LoopPools.Array.data[1].spawnParent
-      value: 
-      objectReference: {fileID: 603581207}
-    - target: {fileID: 114670033618883692, guid: a16f01278495c41a2b43aa6d496454e4,
-        type: 2}
-      propertyPath: m_Controller.m_Transforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 603581207}
-    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
-        type: 2}
       propertyPath: m_ActivatedOnLoopIndex.Array.data[0]
       value: 
       objectReference: {fileID: 1335668853}
@@ -362,6 +342,31 @@ Prefab:
       propertyPath: m_ActivatedOnLoopIndex.Array.data[2]
       value: 
       objectReference: {fileID: 1563850218}
+    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_LoopPools.Array.data[0].spawnParent
+      value: 
+      objectReference: {fileID: 603581207}
+    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_LoopPools.Array.data[1].spawnParent
+      value: 
+      objectReference: {fileID: 603581207}
+    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_LoopPools.Array.data[2].spawnParent
+      value: 
+      objectReference: {fileID: 603581207}
+    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_LoopPools.Array.data[3].spawnParent
+      value: 
+      objectReference: {fileID: 603581207}
+    - target: {fileID: 114670033618883692, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_Transforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 603581207}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a16f01278495c41a2b43aa6d496454e4, type: 2}
   m_IsPrefabParent: 0
