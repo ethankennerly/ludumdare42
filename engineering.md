@@ -10,6 +10,7 @@
 1. [x] Pause.
     1. [x] Tap button to start.
     1. [x] Read instruction.
+    1. [ ] Pause pauses music.
 1. [x] See [Mover System](LudumDare42/Assets/Scripts/MoverSystem.cs)
     1. [x] See a block.
     1. [x] Move blocks at configurable speed.
