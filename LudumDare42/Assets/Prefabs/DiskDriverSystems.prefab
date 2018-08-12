@@ -17567,6 +17567,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4196342142542830}
+  - component: {fileID: 114337496654590844}
+  - component: {fileID: 114838185535826124}
   m_Layer: 0
   m_Name: DiskDriverSystems
   m_TagString: Untagged
@@ -72660,6 +72662,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Texture: {fileID: 2800000, guid: 6bf06c2b50abb4f82acd05c975e6c6ec, type: 3}
+--- !u!114 &114337496654590844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830076607109432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e887c42b4134bc28afac719445df30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeScale: 1
+  m_RoundToNearest: 0.25
 --- !u!114 &114394143159755924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72726,7 +72741,7 @@ MonoBehaviour:
     m_Origin: {x: 0, y: 0, z: 0}
     m_LoopPools:
     - threshold: 1
-      prefab: {fileID: 1941049763045796, guid: 68a19735fbd4d4fbab3e822fc79aa2a9, type: 2}
+      prefab: {fileID: 1289880190751462, guid: 367d0f75e192245e5ae3f817cfdea09c, type: 2}
       maxClones: 512
       spawnParent: {fileID: 0}
     - threshold: 204
@@ -72773,6 +72788,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8bb92a5164f6447981e6ba4e009b877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114838185535826124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830076607109432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297b03ca95fd5474787d9ffec90bc55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TargetFrameRate: 30
 --- !u!114 &114838590420361712
 MonoBehaviour:
   m_ObjectHideFlags: 1
