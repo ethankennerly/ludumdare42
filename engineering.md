@@ -27,6 +27,13 @@
 1. [x] Key System View (Unity Toykit)
     1. [x] Keyboard to steer.
 
+## Level Reader
+
+1. [ ] Map image x to world x.
+1. [ ] Map image y to world -z.
+1. [ ] Map red channel to integer.
+1. [ ] Align bottom center of image to 0, 0, 0.
+
 ## Spawn
 
 ### Editor flow
