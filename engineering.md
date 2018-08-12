@@ -63,3 +63,12 @@
 1. [ ] Read top score.
 1. [ ] Score. Most significant digit represents lap.
 1. [ ] Score. Sum of blocks passed.  "MB"
+
+## Music sync
+
+        >>> 32 * 4 / 137.
+        0.9343065693430657
+        >>> 32 * 4 / 137. * 60
+        56.05839416058394
+        >>> 32 * 4 / 137. * 60 * 11.416667
+        640.0000186861314
