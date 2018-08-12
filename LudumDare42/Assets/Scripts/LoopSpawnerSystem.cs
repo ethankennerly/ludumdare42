@@ -53,6 +53,8 @@ namespace FineGameDesign.Utils
 
         [NonSerialized]
         private Vector3 m_Position;
+        [NonSerialized]
+        private Vector3 m_WrappedPosition;
 
         [NonSerialized]
         private byte m_LoopIndex;
@@ -78,6 +80,8 @@ namespace FineGameDesign.Utils
         private int m_NumColumns;
         [NonSerialized]
         private int m_NumRows;
+        [NonSerialized]
+        private byte[] m_Thresholds;
 
         [Serializable]
         private class LoopPool
@@ -132,33 +136,60 @@ namespace FineGameDesign.Utils
             m_NumRows = layout.height;
             int numCells = layout.bytes.Length;
             m_Cells = new Cell[numCells];
+            m_Thresholds = SortThresholds(m_LoopPools);
             for (int index = 0; index < numCells; ++index)
             {
-                byte loopIndex = ByteToLoopIndex(layout.bytes[index]);
+                byte loopIndex = ByteToLoopIndex(layout.bytes[index], m_Thresholds);
                 m_Cells[index] = new Cell(loopIndex, false);
             }
         }
 
-        private byte ByteToLoopIndex(byte source)
+        private byte[] SortThresholds(LoopPool[] pools)
+        {
+            int numThresholds = pools.Length;
+            byte[] thresholds = new byte[numThresholds];
+            for (int index = 0; index < numThresholds; ++index)
+            {
+                thresholds[index] = pools[index].threshold;
+            }
+            Array.Sort(thresholds);
+            return thresholds;
+        }
+
+        /// <param name="source">0: Never spawns by assigning max 255.
+        /// Example sources:
+        ///     >>> 0x66
+        ///     102
+        ///     >>> 0x99
+        ///     153
+        ///     >>> 0xff
+        ///     255
+        ///     >>> 0xcc
+        ///     204
+        /// </param>
+        /// <param name="sortedThresholds">Positive thresholds. Less than 255 of them.</param>
+        private byte ByteToLoopIndex(byte source, byte[] sortedThresholds)
         {
             const byte maxByte = 255;
-            if (source == 0)
-                return maxByte;
+            Debug.Assert(sortedThresholds.Length < maxByte && sortedThresholds.Length >= 1,
+                "Too many thresholds. Expected between 1 and 254 thresholds. Got " +
+                sortedThresholds.Length
+            );
+            byte maxIndex;
+            if (sortedThresholds.Length >= maxByte)
+                maxIndex = maxByte - 1;
+            else
+                maxIndex = (byte)(sortedThresholds.Length - 1);
 
-            return (byte)0;
-
-            // TODO:
-
-            if (source > 0)
+            for (byte loopIndex = maxIndex; true; --loopIndex)
             {
-                bool breakHere = true;
+                byte threshold = sortedThresholds[loopIndex];
+                if (source >= threshold)
+                    return loopIndex;
+                if (loopIndex == 0)
+                    break;
             }
-            byte scaled = (byte)((source * m_MaxLoops) / maxByte);
-            if (scaled >= m_MaxLoops)
-                return 0;
-
-            byte inverted = (byte)(m_MaxLoops - scaled);
-            return inverted;
+            return maxByte;
         }
 
         // 1. [x] Map image x to world x.
@@ -166,11 +197,19 @@ namespace FineGameDesign.Utils
         // 1. [x] Align bottom center of image to 0, 0, 0.
         private void UpdateSpawning()
         {
+            m_WrappedPosition = WrapSpawnPosition(m_Position);
+            int rowPosition = -(int)m_Position.z;
+            if (rowPosition < 0)
+                rowPosition = 0;
+            int spawnDepth = rowPosition + m_SpawnDepthMax;
+            m_LoopIndex = (byte)(spawnDepth / m_NumRows);
+            if (m_LoopIndex >= m_MaxLoops)
+                m_LoopIndex = (byte)(m_MaxLoops - 1);
+
             int rowSpawnRange = m_SpawnDepthMax - m_SpawnDepthMin;
             int rowLimit = rowSpawnRange;
             if (rowLimit > m_NumRows)
                 rowLimit = m_NumRows;
-            int rowPosition = -(int)m_Position.z;
             for (int rowFromMin = 0; rowFromMin < rowLimit; ++rowFromMin)
             {
                 int row = (rowPosition + rowFromMin + m_SpawnDepthMin) % m_NumRows;
@@ -192,18 +231,31 @@ namespace FineGameDesign.Utils
                         continue;
 
                     cell.spawned = true;
-                    LoopPool pool = m_LoopPools[m_LoopIndex];
+                    LoopPool pool = m_LoopPools[cell.loopIndex];
                     GameObject clone = pool.GetObject();
-                    clone.transform.position = Place(column, row);
+                    clone.transform.position = Place(column, row, m_WrappedPosition);
                 }
             }
         }
 
-        private Vector3 Place(int column, int row)
+        private Vector3 WrapSpawnPosition(Vector3 source)
         {
-            float x = m_Position.x + column - m_NumColumns / 2;
-            float y = 0f;
-            float z = row + m_Position.z;
+            return new Vector3(
+                source.x % m_NumColumns,
+                source.y,
+                source.z % m_NumRows
+            );
+        }
+
+        private Vector3 Place(int column, int row, Vector3 wrappedPosition)
+        {
+            float x = m_WrappedPosition.x + column - m_NumColumns / 2;
+            float y = -m_WrappedPosition.y;
+            float z = row + m_WrappedPosition.z;
+            if (z < m_SpawnDepthMin)
+                z += m_NumRows;
+            else if (z > m_SpawnDepthMax)
+                z -= m_NumRows;
             Vector3 position = new Vector3(x, y, z);
             return position;
         }

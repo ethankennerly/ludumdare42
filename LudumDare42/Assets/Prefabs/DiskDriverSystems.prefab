@@ -72725,9 +72725,13 @@ MonoBehaviour:
   m_Controller:
     m_Origin: {x: 0, y: 0, z: 0}
     m_LoopPools:
-    - threshold: 0
+    - threshold: 1
       prefab: {fileID: 1941049763045796, guid: 68a19735fbd4d4fbab3e822fc79aa2a9, type: 2}
-      maxClones: 1024
+      maxClones: 512
+      spawnParent: {fileID: 0}
+    - threshold: 204
+      prefab: {fileID: 1835903139742040, guid: fc25814eb89c04fb3983fb2b03674152, type: 2}
+      maxClones: 512
       spawnParent: {fileID: 0}
     m_SpawnDepthMin: -10
     m_SpawnDepthMax: 50

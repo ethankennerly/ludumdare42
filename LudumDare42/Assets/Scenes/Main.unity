@@ -282,6 +282,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd944232d6ae74e2aadf3e75e91bc7f7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1437139161 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1830076607109432, guid: a16f01278495c41a2b43aa6d496454e4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1772475552}
+--- !u!114 &1437139162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437139161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e887c42b4134bc28afac719445df30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeScale: 1
+  m_RoundToNearest: 0.25
 --- !u!1001 &1519180781
 Prefab:
   m_ObjectHideFlags: 0
@@ -538,16 +556,16 @@ Prefab:
       propertyPath: m_Controller.m_LoopPools.Array.data[0].spawnParent
       value: 
       objectReference: {fileID: 603581207}
+    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_LoopPools.Array.data[1].spawnParent
+      value: 
+      objectReference: {fileID: 603581207}
     - target: {fileID: 114670033618883692, guid: a16f01278495c41a2b43aa6d496454e4,
         type: 2}
       propertyPath: m_Controller.m_Transforms.Array.data[0]
       value: 
       objectReference: {fileID: 603581207}
-    - target: {fileID: 114394143159755924, guid: a16f01278495c41a2b43aa6d496454e4,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a16f01278495c41a2b43aa6d496454e4, type: 2}
   m_IsPrefabParent: 0
@@ -715,10 +733,6 @@ Prefab:
     - target: {fileID: 4502998389210864, guid: 56ddde51e0bc84b34ace66728a544a91, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1178515068469178, guid: 56ddde51e0bc84b34ace66728a544a91, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56ddde51e0bc84b34ace66728a544a91, type: 2}
