@@ -39,6 +39,8 @@ namespace FineGameDesign.Utils
     {
         public event Action<Transform[]> onSpawned;
 
+        public event Action<int> onLoopIndexChanged;
+
         [SerializeField]
         private Vector3 m_Origin = Vector3.zero;
 
@@ -60,7 +62,10 @@ namespace FineGameDesign.Utils
         private Vector3 m_WrappedPosition;
 
         [NonSerialized]
-        private byte m_LoopIndex;
+        private byte m_SpawnLoopIndex = 255;
+
+        [NonSerialized]
+        private byte m_PositionLoopIndex = 255;
 
         [NonSerialized]
         private byte m_MaxLoops;
@@ -130,6 +135,8 @@ namespace FineGameDesign.Utils
         public void ResetPosition()
         {
             m_Position = m_Origin;
+            m_PositionLoopIndex = 255;
+            m_SpawnLoopIndex = 255;
         }
 
         public void Spawn(ByteArray2D layout)
@@ -204,19 +211,14 @@ namespace FineGameDesign.Utils
             return maxByte;
         }
 
-        // 1. [x] Map image x to world x.
-        // 1. [x] Map image y to world -z.
-        // 1. [x] Align bottom center of image to 0, 0, 0.
         private void UpdateSpawning()
         {
             m_WrappedPosition = WrapSpawnPosition(m_Position);
             int rowPosition = -(int)m_Position.z;
             if (rowPosition < 0)
                 rowPosition = 0;
-            int spawnDepth = rowPosition + m_SpawnDepthMax;
-            m_LoopIndex = (byte)(spawnDepth / m_NumRows);
-            if (m_LoopIndex >= m_MaxLoops)
-                m_LoopIndex = (byte)(m_MaxLoops - 1);
+
+            UpdateLoopIndexes(rowPosition);
 
             int rowSpawnRange = m_SpawnDepthMax - m_SpawnDepthMin;
             int rowLimit = rowSpawnRange;
@@ -251,7 +253,7 @@ namespace FineGameDesign.Utils
                             continue;
                         }
                     }
-                    if (cell.loopIndex > m_LoopIndex)
+                    if (cell.loopIndex > m_SpawnLoopIndex)
                         continue;
 
                     if (cell.spawned)
@@ -265,6 +267,30 @@ namespace FineGameDesign.Utils
             }
         }
 
+        private void UpdateLoopIndexes(int rowPosition)
+        {
+            int spawnDepth = rowPosition + m_SpawnDepthMax;
+            m_SpawnLoopIndex = GetLoopIndex(spawnDepth);
+
+            byte nextLoopIndex = GetLoopIndex(rowPosition);
+            if (nextLoopIndex == m_PositionLoopIndex)
+                return;
+
+            m_PositionLoopIndex = nextLoopIndex;
+            if (onLoopIndexChanged == null)
+                return;
+
+            onLoopIndexChanged(nextLoopIndex);
+        }
+
+        private byte GetLoopIndex(int rowPosition)
+        {
+            byte loopIndex = (byte)(rowPosition / m_NumRows);
+            if (loopIndex >= m_MaxLoops)
+                loopIndex = (byte)(m_MaxLoops - 1);
+            return loopIndex;
+        }
+
         private Vector3 WrapSpawnPosition(Vector3 source)
         {
             return new Vector3(
@@ -274,6 +300,11 @@ namespace FineGameDesign.Utils
             );
         }
 
+        /// <summary>
+        /// 1. [x] Map image x to world x.
+        /// 1. [x] Map image y to world -z.
+        /// 1. [x] Align bottom center of image to 0, 0, 0.
+        /// </summary>
         private Vector3 Place(int column, int row, Vector3 wrappedPosition)
         {
             float x = m_WrappedPosition.x + column - m_NumColumns / 2;
