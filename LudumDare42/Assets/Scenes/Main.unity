@@ -342,6 +342,11 @@ Prefab:
       propertyPath: m_Controller.m_Transforms.Array.data[0]
       value: 
       objectReference: {fileID: 603581207}
+    - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_Controller.m_SpawnColumnDistanceMax
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a16f01278495c41a2b43aa6d496454e4, type: 2}
   m_IsPrefabParent: 0

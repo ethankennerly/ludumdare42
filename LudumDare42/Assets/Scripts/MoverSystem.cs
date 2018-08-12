@@ -25,8 +25,6 @@ namespace FineGameDesign.Utils
         [SerializeField]
         private Transform[] m_Transforms;
 
-        private Vector3 m_Position;
-
         public void AddTransforms(Transform[] transforms)
         {
             int numNewTransforms = transforms.Length;
@@ -50,6 +48,14 @@ namespace FineGameDesign.Utils
             if (onMoved != null)
             {
                 onMoved(step);
+            }
+        }
+
+        public void Initialize()
+        {
+            foreach (Transform transform in m_Transforms)
+            {
+                transform.position = Vector3.zero;
             }
         }
 

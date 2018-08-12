@@ -11,6 +11,10 @@ namespace FineGameDesign.Utils
 
         private void OnEnable()
         {
+            DebugUtil.Log("MoverSystemView.OnEnable");
+
+            controller.Initialize();
+
             AddListener();
         }
 

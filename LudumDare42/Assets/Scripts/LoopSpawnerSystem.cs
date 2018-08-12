@@ -51,6 +51,9 @@ namespace FineGameDesign.Utils
         [SerializeField]
         private int m_SpawnDepthMax = 50;
 
+        [SerializeField]
+        private int m_SpawnColumnDistanceMax = 25;
+
         [NonSerialized]
         private Vector3 m_Position;
         [NonSerialized]
@@ -219,6 +222,9 @@ namespace FineGameDesign.Utils
             int rowLimit = rowSpawnRange;
             if (rowLimit > m_NumRows)
                 rowLimit = m_NumRows;
+
+            int columnPosition = -(int)m_Position.x;
+
             for (int rowFromMin = 0; rowFromMin < rowLimit; ++rowFromMin)
             {
                 int row = (rowPosition + rowFromMin + m_SpawnDepthMin) % m_NumRows;
@@ -228,10 +234,18 @@ namespace FineGameDesign.Utils
                 {
                     int cellIndex = row * m_NumColumns + column;
                     Cell cell = m_Cells[cellIndex];
-                    if (cell.spawned && rowFromMin >= rowSpawnRange)
+                    if (cell.spawned)
                     {
-                        cell.spawned = false;
-                        continue;
+                        int columnDistance = column - columnPosition;
+                        if (columnDistance < 0)
+                            columnDistance = -columnDistance;
+                        if (rowFromMin >= rowSpawnRange ||
+                            columnDistance >= m_SpawnColumnDistanceMax
+                        )
+                        {
+                            cell.spawned = false;
+                            continue;
+                        }
                     }
                     if (cell.loopIndex > m_LoopIndex)
                         continue;
