@@ -10,18 +10,16 @@
 1. [x] Pause.
     1. [x] Tap button to start.
     1. [x] Read instruction.
-    1. [ ] Pause pauses music.
+    1. [x] Pause pauses music.
 1. [x] See [Mover System](LudumDare42/Assets/Scripts/MoverSystem.cs)
     1. [x] See a block.
     1. [x] Move blocks at configurable speed.
     1. [x] Configure camera rotation to see blocks.
 1. [x] Mover Steering Listener
     1. [x] Mover set X listens to steering X.
-    1. [ ] Steer. Hear sound.
+    1. [x] Steer. Hear sound.
 
 1. [x] See [Horizontal Steering System](LudumDare42/Assets/UnityToykit/HorizontalSteeringSystem.cs)
-    1. [ ] Tilt camera when steering.
-    1. [ ] See horizon.
 
 1. [x] Click System View (Unity Toykit)
     1. [x] Tap edge of screen to steer.
@@ -43,16 +41,20 @@
 
 1. [x] See [ColliderGameOver](LudumDare/Assets/Scripts/ColliderGameOver.cs)
 
-1. [ ] Game over. Fade out blocks. Reset.
+1. [x] Game over. Fade out blocks. Reset.
 
 ## Score
 
-1. [ ] Read score by distance.
-1. [ ] Read top score.
-1. [ ] Score. Most significant digit represents lap.
-1. [ ] Score. Sum of blocks passed.  "MB"
+1. [x] Read score by distance.
 
 ## Music sync
+
+- 137 beats per minute
+- 32 bars per loop
+- 4 beats per bar
+- 5 blocks per beat
+- 640 blocks per loop
+- 11.4167 blocks per second
 
         >>> 32 * 4 / 137.
         0.9343065693430657
