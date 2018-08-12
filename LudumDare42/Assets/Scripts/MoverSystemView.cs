@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using UnityEngine;
 
 namespace FineGameDesign.Utils
 {
@@ -7,7 +9,13 @@ namespace FineGameDesign.Utils
     /// </summary>
     public sealed class MoverSystemView : ASingletonView<MoverSystem>
     {
+        [Header("Optional")]
+        [SerializeField]
+        private TMP_Text m_DepthText;
+
         private Action<float> m_OnDeltaTime;
+
+        private Action<int> m_OnDepth;
 
         private void OnEnable()
         {
@@ -28,11 +36,25 @@ namespace FineGameDesign.Utils
 
             PauseSystem.onDeltaTime -= m_OnDeltaTime;
             PauseSystem.onDeltaTime += m_OnDeltaTime;
+
+            if (m_OnDepth == null)
+                m_OnDepth = TrySetDepthText;
+            controller.onDepth -= m_OnDepth;
+            controller.onDepth += m_OnDepth;
         }
 
         private void RemoveListener()
         {
             PauseSystem.onDeltaTime -= m_OnDeltaTime;
+            controller.onDepth -= m_OnDepth;
+        }
+
+        private void TrySetDepthText(int depth)
+        {
+            if (m_DepthText == null)
+                return;
+
+            m_DepthText.text = depth.ToString();
         }
     }
 }

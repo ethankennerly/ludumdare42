@@ -18,12 +18,16 @@ namespace FineGameDesign.Utils
     public sealed class MoverSystem : ASingleton<MoverSystem>
     {
         public event Action<Vector3> onMoved;
+        public event Action<int> onDepth;
 
         [SerializeField]
         private Vector3 m_Speed;
 
         [SerializeField]
         private Transform[] m_Transforms;
+
+        private int m_DepthFloored = 0;
+        private float m_Depth = 0;
 
         public void AddTransforms(Transform[] transforms)
         {
@@ -49,6 +53,8 @@ namespace FineGameDesign.Utils
             {
                 onMoved(step);
             }
+
+            SetDepth(m_Depth - step.z);
         }
 
         public void Initialize()
@@ -62,6 +68,19 @@ namespace FineGameDesign.Utils
         public void SetSpeedX(float x)
         {
             m_Speed.x = x;
+        }
+
+        private void SetDepth(float depth)
+        {
+            m_Depth = depth;
+            int nextDepth = (int)m_Depth;
+            if (nextDepth == m_DepthFloored)
+                return;
+            m_DepthFloored = nextDepth;
+            if (onDepth != null)
+            {
+                onDepth(nextDepth);
+            }
         }
     }
 }
