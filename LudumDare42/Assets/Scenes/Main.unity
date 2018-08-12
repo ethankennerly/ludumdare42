@@ -447,6 +447,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114670033618883692, guid: a16f01278495c41a2b43aa6d496454e4,
+        type: 2}
+      propertyPath: m_DepthText
+      value: 
+      objectReference: {fileID: 1466874670}
     - target: {fileID: 114594503126410536, guid: a16f01278495c41a2b43aa6d496454e4,
         type: 2}
       propertyPath: m_ActivatedOnLoopIndex.Array.data[0]
@@ -487,11 +492,6 @@ Prefab:
       propertyPath: m_Controller.m_Transforms.Array.data[0]
       value: 
       objectReference: {fileID: 603581207}
-    - target: {fileID: 114670033618883692, guid: a16f01278495c41a2b43aa6d496454e4,
-        type: 2}
-      propertyPath: m_DepthText
-      value: 
-      objectReference: {fileID: 1466874670}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a16f01278495c41a2b43aa6d496454e4, type: 2}
   m_IsPrefabParent: 0
@@ -869,19 +869,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114382368732376420, guid: 6aa3b5477a57b47e2a7b5c0b4f6f085f,
         type: 2}
-      propertyPath: m_TriggerActivatedObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114382368732376420, guid: 6aa3b5477a57b47e2a7b5c0b4f6f085f,
-        type: 2}
       propertyPath: m_TriggerAnimator
       value: 
       objectReference: {fileID: 118076132}
-    - target: {fileID: 114382368732376420, guid: 6aa3b5477a57b47e2a7b5c0b4f6f085f,
-        type: 2}
-      propertyPath: m_TriggerAnimationName
-      value: Begin
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6aa3b5477a57b47e2a7b5c0b4f6f085f, type: 2}
   m_IsPrefabParent: 0

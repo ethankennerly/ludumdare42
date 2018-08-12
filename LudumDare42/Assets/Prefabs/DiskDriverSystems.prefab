@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee9bfd776b074519ab19d3b1d951f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Texture: {fileID: 2800000, guid: 6bf06c2b50abb4f82acd05c975e6c6ec, type: 3}
+  m_Texture: {fileID: 2800000, guid: 6212553c4314e4fc29262e922793d01d, type: 3}
 --- !u!114 &114337496654590844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +438,7 @@ MonoBehaviour:
     m_Speed: {x: 0, y: 0, z: -11.416667}
     m_Transforms:
     - {fileID: 0}
+  m_DepthText: {fileID: 0}
 --- !u!114 &114694437592159984
 MonoBehaviour:
   m_ObjectHideFlags: 1

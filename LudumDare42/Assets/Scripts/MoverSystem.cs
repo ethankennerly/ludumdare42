@@ -63,6 +63,8 @@ namespace FineGameDesign.Utils
             {
                 transform.position = Vector3.zero;
             }
+
+            SetDepth(0f);
         }
 
         public void SetSpeedX(float x)
