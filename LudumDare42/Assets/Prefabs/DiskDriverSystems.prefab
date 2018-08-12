@@ -72711,7 +72711,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Controller:
-    m_SpawnParent: {fileID: 0}
+    m_Origin: {x: 0, y: 0, z: 0}
+    m_LoopPools:
+    - threshold: 0
+      prefab: {fileID: 1941049763045796, guid: 68a19735fbd4d4fbab3e822fc79aa2a9, type: 2}
+      maxClones: 128
+      spawnParent: {fileID: 0}
+    m_SpawnDepthMin: -10
+    m_SpawnDepthMax: 50
   m_TextureController: {fileID: 114125896756055120}
 --- !u!114 &114670033618883692
 MonoBehaviour:

@@ -9,7 +9,7 @@ namespace FineGameDesign.Utils
 
         private void OnEnable()
         {
-            controller.layout = m_TextureController.GetRedChannel();
+            controller.Spawn(m_TextureController.GetRedChannel());
         }
     }
 }
