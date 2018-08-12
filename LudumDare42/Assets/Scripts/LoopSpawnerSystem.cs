@@ -51,10 +51,14 @@ namespace FineGameDesign.Utils
         [SerializeField]
         private int m_SpawnDepthMax = 50;
 
+        [NonSerialized]
         private Vector3 m_Position;
 
+        [NonSerialized]
         private byte m_LoopIndex;
-        private byte m_MaxLoops = 1;
+
+        [NonSerialized]
+        private byte m_MaxLoops;
 
         private struct Cell
         {
@@ -68,9 +72,11 @@ namespace FineGameDesign.Utils
             }
         }
 
+        [NonSerialized]
         private Cell[] m_Cells;
-
+        [NonSerialized]
         private int m_NumColumns;
+        [NonSerialized]
         private int m_NumRows;
 
         [Serializable]
@@ -111,6 +117,7 @@ namespace FineGameDesign.Utils
 
         public void Spawn(ByteArray2D layout)
         {
+            m_MaxLoops = (byte)m_LoopPools.Length;
             Vector3 offScreen = new Vector3(0f, 0f, m_SpawnDepthMin);
             foreach (LoopPool pool in m_LoopPools)
                 pool.Initialize(offScreen);
@@ -133,7 +140,14 @@ namespace FineGameDesign.Utils
 
         private byte ByteToLoopIndex(byte source)
         {
-            byte maxByte = 255;
+            const byte maxByte = 255;
+            if (source == 0)
+                return maxByte;
+
+            return (byte)0;
+
+            // TODO:
+
             if (source > 0)
             {
                 bool breakHere = true;
@@ -149,7 +163,8 @@ namespace FineGameDesign.Utils
         private void UpdateSpawning()
         {
             int rowSpawnRange = m_SpawnDepthMax - m_SpawnDepthMin;
-            int rowLimit = m_NumRows - rowSpawnRange;
+            // int rowLimit = (m_NumRows - rowSpawnRange) / 2;
+            int rowLimit = m_NumRows;
             int rowPosition = (int)m_Position.z;
             for (int rowFromMin = 0; rowFromMin < rowLimit; ++rowFromMin)
             {
@@ -160,7 +175,7 @@ namespace FineGameDesign.Utils
                 {
                     int cellIndex = row * m_NumColumns + column;
                     Cell cell = m_Cells[cellIndex];
-                    if (row >= rowSpawnRange)
+                    if (cell.spawned && rowFromMin >= rowSpawnRange)
                     {
                         cell.spawned = false;
                         continue;
@@ -181,13 +196,14 @@ namespace FineGameDesign.Utils
 
         private Vector3 Place(int column, int row)
         {
-            float x = column - m_Position.x;
+            float x = m_Position.x + column - m_NumColumns / 2;
             float y = 0f;
             float z = row - m_Position.z;
             Vector3 position = new Vector3(x, y, z);
             return position;
         }
 
+        // TODO:
         public void Move(Vector3 step)
         {
             m_Position += step;

@@ -11,7 +11,6 @@ namespace FineGameDesign.Utils
     public sealed class LoopSpawnerMoverBridge : MonoBehaviour
     {
         private Action<Vector3> m_OnMoved;
-        private Action<Transform[]> m_OnSpawned;
 
         private void OnEnable()
         {
@@ -29,17 +28,11 @@ namespace FineGameDesign.Utils
                 m_OnMoved = LoopSpawnerSystem.instance.Move;
             MoverSystem.instance.onMoved -= m_OnMoved;
             MoverSystem.instance.onMoved += m_OnMoved;
-
-            if (m_OnSpawned == null)
-                m_OnSpawned = MoverSystem.instance.AddTransforms;
-            LoopSpawnerSystem.instance.onSpawned -= m_OnSpawned;
-            LoopSpawnerSystem.instance.onSpawned += m_OnSpawned;
         }
 
         private void RemoveListeners()
         {
             MoverSystem.instance.onMoved -= m_OnMoved;
-            LoopSpawnerSystem.instance.onSpawned -= m_OnSpawned;
         }
     }
 }

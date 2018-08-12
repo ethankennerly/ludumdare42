@@ -6372,6 +6372,7 @@ GameObject:
   - component: {fileID: 4465456576624540}
   - component: {fileID: 114594503126410536}
   - component: {fileID: 114125896756055120}
+  - component: {fileID: 114394143159755924}
   m_Layer: 0
   m_Name: LoopSpawnerSystem
   m_TagString: Untagged
@@ -9160,7 +9161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1443337508063548
 GameObject:
   m_ObjectHideFlags: 1
@@ -9488,7 +9489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1455290647442764
 GameObject:
   m_ObjectHideFlags: 1
@@ -13351,7 +13352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1633776133528850
 GameObject:
   m_ObjectHideFlags: 1
@@ -72659,6 +72660,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Texture: {fileID: 2800000, guid: 6bf06c2b50abb4f82acd05c975e6c6ec, type: 3}
+--- !u!114 &114394143159755924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289420447330774}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed55b0ed418a4498abbb118083c7966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114441957937430214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72715,10 +72727,10 @@ MonoBehaviour:
     m_LoopPools:
     - threshold: 0
       prefab: {fileID: 1941049763045796, guid: 68a19735fbd4d4fbab3e822fc79aa2a9, type: 2}
-      maxClones: 128
+      maxClones: 4098
       spawnParent: {fileID: 0}
     m_SpawnDepthMin: -10
-    m_SpawnDepthMax: 50
+    m_SpawnDepthMax: 250
   m_TextureController: {fileID: 114125896756055120}
 --- !u!114 &114670033618883692
 MonoBehaviour:
@@ -72732,7 +72744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Controller:
-    m_Speed: {x: 0, y: 0, z: -10}
+    m_Speed: {x: 0, y: 0, z: -11.416667}
     m_Transforms:
     - {fileID: 0}
 --- !u!114 &114694437592159984
