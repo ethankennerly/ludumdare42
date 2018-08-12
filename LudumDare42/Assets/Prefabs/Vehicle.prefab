@@ -206,3 +206,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AudioSource: {fileID: 82252158957294178}
   m_TriggerClip: {fileID: 8300000, guid: 7ef03f078610d409da9e93b41bce24b8, type: 3}
+  m_TriggerActivatedObject: {fileID: 0}

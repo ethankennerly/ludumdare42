@@ -19,10 +19,39 @@ namespace FineGameDesign.LudumDare42
         [SerializeField]
         private AudioClip m_TriggerClip;
 
+        [Header("Optional")]
+        [SerializeField]
+        private GameObject m_TriggerActivatedObject;
+
+        [Header("Optional")]
+        [SerializeField]
+        private Animator m_TriggerAnimator;
+
+        [Header("Optional")]
+        [SerializeField]
+        private string m_TriggerAnimationName;
+
         private void OnTriggerEnter(Collider other)
         {
-            DebugUtil.Log("OnTriggerEnter: this=" + this + " other=" + other);
+            PauseSystem.instance.Pause();
+            PauseSystem.instance.state = PauseSystem.State.None;
+
+            SceneNodeView.TrySetActive(m_TriggerActivatedObject, true);
+
+            TryPlayAnimation(m_TriggerAnimator, m_TriggerAnimationName);
+
             TryPlaySound();
+        }
+
+        private void TryPlayAnimation(Animator animator, string animationName)
+        {
+            if (animator == null)
+                return;
+
+            if (string.IsNullOrEmpty(animationName))
+                return;
+
+            animator.Play(animationName, -1, 0f);
         }
 
         private void TryPlaySound()

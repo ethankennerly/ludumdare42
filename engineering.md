@@ -41,17 +41,8 @@
 
 ### Editor flow
 
-1. [ ] Collider
-    1. [x] See vehicle.
-    1. [ ] Rigid Body
-    1. [ ] On Collision
+1. [x] See [ColliderGameOver](LudumDare/Assets/Scripts/ColliderGameOver.cs)
 
-1. [ ] Game Over Collider Listener
-    1. [ ] Move System Pause listens to Collider On Collision
-    1. [ ] Game Over root Set Active listens to On Collision
-    1. [ ] Sound plays.
-
-1. [ ] Game over. Restart.
 1. [ ] Game over. Fade out blocks. Reset.
 
 ## Score
