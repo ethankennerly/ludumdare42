@@ -409,6 +409,7 @@ MonoBehaviour:
       spawnParent: {fileID: 0}
     m_SpawnDepthMin: -10
     m_SpawnDepthMax: 50
+    m_SpawnColumnDistanceMax: 25
   m_TextureController: {fileID: 114125896756055120}
 --- !u!114 &114670033618883692
 MonoBehaviour:

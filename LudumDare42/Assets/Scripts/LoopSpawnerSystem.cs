@@ -236,12 +236,16 @@ namespace FineGameDesign.Utils
                     Cell cell = m_Cells[cellIndex];
                     if (cell.spawned)
                     {
+                        if (rowFromMin >= rowSpawnRange)
+                        {
+                            cell.spawned = false;
+                            continue;
+                        }
+
                         int columnDistance = column - columnPosition;
                         if (columnDistance < 0)
                             columnDistance = -columnDistance;
-                        if (rowFromMin >= rowSpawnRange ||
-                            columnDistance >= m_SpawnColumnDistanceMax
-                        )
+                        if (columnDistance >= m_SpawnColumnDistanceMax)
                         {
                             cell.spawned = false;
                             continue;
@@ -273,6 +277,10 @@ namespace FineGameDesign.Utils
         private Vector3 Place(int column, int row, Vector3 wrappedPosition)
         {
             float x = m_WrappedPosition.x + column - m_NumColumns / 2;
+            if (x < -m_SpawnColumnDistanceMax)
+                x += m_NumColumns;
+            else if (x > m_SpawnColumnDistanceMax)
+                x -= m_NumColumns;
             float y = -m_WrappedPosition.y;
             float z = row + m_WrappedPosition.z;
             if (z < m_SpawnDepthMin)
