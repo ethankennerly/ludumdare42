@@ -33,8 +33,6 @@ namespace FineGameDesign.Utils
     [Serializable]
     public sealed class LoopSpawnerSystem : ASingleton<LoopSpawnerSystem>
     {
-        public event Action<Transform[]> onSpawned;
-
         public event Action<int> onLoopIndexChanged;
 
         [SerializeField]
@@ -56,9 +54,6 @@ namespace FineGameDesign.Utils
         private Vector3 m_Position;
         [NonSerialized]
         private Vector3 m_WrappedPosition;
-
-        [NonSerialized]
-        private byte m_SpawnLoopIndex = 255;
 
         [NonSerialized]
         private byte m_PositionLoopIndex = 255;
@@ -132,7 +127,6 @@ namespace FineGameDesign.Utils
         {
             m_Position = m_Origin;
             m_PositionLoopIndex = 255;
-            m_SpawnLoopIndex = 255;
         }
 
         public void Spawn(ByteArray2D layout)
@@ -207,6 +201,11 @@ namespace FineGameDesign.Utils
             return maxByte;
         }
 
+        /// <summary>
+        /// Does not spawn if position at cell is not at that loop index.
+        /// Otherwise, when approaching the loop,
+        /// cells at the end of the next loop spawn in the middle of the camera.
+        /// </summary>
         private void UpdateSpawning()
         {
             m_WrappedPosition = WrapSpawnPosition(m_Position);
@@ -225,7 +224,9 @@ namespace FineGameDesign.Utils
 
             for (int rowFromMin = 0; rowFromMin < rowLimit; ++rowFromMin)
             {
-                int row = (rowPosition + rowFromMin + m_SpawnDepthMin) % m_NumRows;
+                int rowPositionAtCell = rowPosition + rowFromMin + m_SpawnDepthMin;
+                byte loopIndexAtCell = GetLoopIndex(rowPositionAtCell);
+                int row = rowPositionAtCell % m_NumRows;
                 while (row < 0)
                     row += m_NumRows;
                 for (int column = 0; column < m_NumColumns; ++column)
@@ -249,7 +250,7 @@ namespace FineGameDesign.Utils
                             continue;
                         }
                     }
-                    if (cell.loopIndex > m_SpawnLoopIndex)
+                    if (cell.loopIndex > loopIndexAtCell)
                         continue;
 
                     if (cell.spawned)
@@ -265,9 +266,6 @@ namespace FineGameDesign.Utils
 
         private void UpdateLoopIndexes(int rowPosition)
         {
-            int spawnDepth = rowPosition + m_SpawnDepthMax;
-            m_SpawnLoopIndex = GetLoopIndex(spawnDepth);
-
             byte nextLoopIndex = GetLoopIndex(rowPosition);
             if (nextLoopIndex == m_PositionLoopIndex)
                 return;
@@ -303,17 +301,17 @@ namespace FineGameDesign.Utils
         /// </summary>
         private Vector3 Place(int column, int row, Vector3 wrappedPosition)
         {
-            float x = m_WrappedPosition.x + column - m_NumColumns / 2;
-            if (x < -m_SpawnColumnDistanceMax)
+            float x = wrappedPosition.x + column - m_NumColumns / 2;
+            while (x < -m_SpawnColumnDistanceMax)
                 x += m_NumColumns;
-            else if (x > m_SpawnColumnDistanceMax)
+            while (x > m_SpawnColumnDistanceMax)
                 x -= m_NumColumns;
-            float y = -m_WrappedPosition.y;
-            float z = row + m_WrappedPosition.z;
-            if (z < m_SpawnDepthMin)
-                z += m_NumRows;
-            else if (z > m_SpawnDepthMax)
+            float y = -wrappedPosition.y;
+            float z = row + wrappedPosition.z;
+            while (z > m_SpawnDepthMax)
                 z -= m_NumRows;
+            while (z < m_SpawnDepthMin)
+                z += m_NumRows;
             Vector3 position = new Vector3(x, y, z);
             return position;
         }
