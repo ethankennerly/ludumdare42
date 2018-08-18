@@ -314,7 +314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289420447330774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee9bfd776b074519ab19d3b1d951f7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b3004373a445f943ba6b4f0ff0cebbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Texture: {fileID: 2800000, guid: 6212553c4314e4fc29262e922793d01d, type: 3}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830076607109432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e887c42b4134bc28afac719445df30, type: 3}
+  m_Script: {fileID: 11500000, guid: 012c01a87fb390949b3c042e1ffc5d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TimeScale: 1
@@ -375,13 +375,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1213617685332742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0864d97338de4ffda95813b1c275c0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 58ea528da6e4ead46b8ad689f03ae8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Controller:
-    m_XAxisMin: 0.5
-    m_XMultiplier: -18.266666
-    m_SteeringDuration: 0.125
+    m_XAxisMin: 0.25
+    m_XMultiplier: -11.416667
+    m_SteeringDuration: 0.0625
   m_AudioSource: {fileID: 82897769155516928}
   m_LeftClip: {fileID: 8300000, guid: 99d782806be1e4894a55bec344d19ab5, type: 3}
   m_RightClip: {fileID: 8300000, guid: f611105cfb1144be5b79644f2dd592a6, type: 3}
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042428664194592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a8548f1a22d4716b107a8e646db05a, type: 3}
+  m_Script: {fileID: 11500000, guid: d73a20b57ede73548bc16a2fa22c1f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114798959630758246
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042428664194592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bb92a5164f6447981e6ba4e009b877, type: 3}
+  m_Script: {fileID: 11500000, guid: 605e2d2fc7b48e94fa627779efe487ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114838185535826124
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830076607109432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297b03ca95fd5474787d9ffec90bc55d, type: 3}
+  m_Script: {fileID: 11500000, guid: f5b167c5f2c718447afc2f676c57b2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TargetFrameRate: 30
