@@ -177,7 +177,7 @@ namespace FineGameDesign.Utils
         ///     204
         /// </param>
         /// <param name="sortedThresholds">Positive thresholds. Less than 255 of them.</param>
-        private byte ByteToLoopIndex(byte source, byte[] sortedThresholds)
+        private byte ByteToLoopIndex(byte source, byte[] sortedThresholds, bool invert = false)
         {
             const byte maxByte = 255;
             Debug.Assert(sortedThresholds.Length < maxByte && sortedThresholds.Length >= 1,
@@ -190,13 +190,17 @@ namespace FineGameDesign.Utils
             else
                 maxIndex = (byte)(sortedThresholds.Length - 1);
 
-            for (byte loopIndex = maxIndex; true; --loopIndex)
+            // Byte wraps around to 255 below 0.
+            for (byte loopIndex = maxIndex; loopIndex <= maxIndex; --loopIndex)
             {
                 byte threshold = sortedThresholds[loopIndex];
                 if (source >= threshold)
+                {
+                    if (invert)
+                        return (byte)(maxIndex - loopIndex);
+
                     return loopIndex;
-                if (loopIndex == 0)
-                    break;
+                }
             }
             return maxByte;
         }
